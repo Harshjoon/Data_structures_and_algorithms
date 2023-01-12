@@ -21,7 +21,7 @@ class LinkedList{
     Node* head;
     public:
         // Default constructor
-        LinkedList(){head=NULL};
+        LinkedList(){head=NULL;};
         // Class member functions
         void insertNode(int);
         void print();
