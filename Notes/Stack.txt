@@ -1,0 +1,25 @@
+What is a stack ?
+Stack is a one-ender linear data structure, which models real world
+stack by having two primary operations, namely push and pop.
+
+pop() : remove top element.
+push() : add at top.
+  
+
+When and where is a stack used ? 
+- Used by undo mechanism.
+- Used in compiler syntax checking.
+- model a pile of books.
+- Used behind the scenes to support recusrion by keeping track
+of previous function calls. 
+- Can be used in depth first seach on a graph. 
+
+
+COMPLEXITY
+
+Pushing     O(1)
+poping      O(1)
+peeking     O(1)
+searching   O(n)
+size        O(1)
+

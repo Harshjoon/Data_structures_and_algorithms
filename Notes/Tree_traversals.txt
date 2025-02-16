@@ -1,0 +1,20 @@
+TREE TRAVERSAL (preorder, Inorder, Postorder and level order)
+
+- preorder prints before the recursive call.
+- inorder prints between the recursive call.
+- postorder prints after the recursive call.
+
+PREORDER TRAVERSAL : print the value of the current node then traverse the left
+subtree followed by the right subtree.
+
+INORDER TRAVERSAL : 
+
+POSTORDER TRAVERSAL: Traverse the left subtree followed by the right subtree the print the value of the node.
+
+LEVEL ORDER TRAVERSAL: In a level order traversal we want to print the nodes as they appear one layer at a time.
+To obtain the ordering we want to do a BREADTH FIRST SEARCH (BFS) from the root node down to the leaf node.
+
+To do a BREADTH FIRST SEARCH we will need to manipulate a queue of the nodes left to explore.
+Begin with the root inside of the queue and finish the queue is empty.
+
+

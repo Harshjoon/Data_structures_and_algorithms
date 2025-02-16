@@ -1,0 +1,101 @@
+BINARY TRESS
+
+A tree is undorected graph which satisfies any of the following definitions:
+- An acyclic connected graph.
+- A connected graph with N nodes and N-1 edges.
+- A Graph in which any two vertices are connected by exactly one path.
+
+If we have a rooted tree then we will want to have a reference to the root
+node of our tree.
+It does not always matter which node is selected to be the root node because 
+any node can root the tree.
+
+A child is node extending from another node. A parent is the inverse of this.
+
+The parent of root node is itself.
+
+A lead node is a node which have no children. They are usually denoted by triangles.
+
+BINARY TREE: a tree for which every node has most 2 children.
+
+
+WHAT IS A BINARY SEARCH TREE ?
+A binary search tree is a binary tree that stisfies the BST invariant:
+left subtree has smaller elements and right subtree has larger elements.
+
+
+WHEN AND WHERE ARE BINARY TREE USED ?
+- Binary search tress(BSTs)
+    - Implementation of some map and set ADTs
+    - Red Black trees
+    - AVL trees
+    - Splay Trees 
+- Used in the implementation of binary heaps.
+- Syntax trees (used by compiler and calculators)
+- Treap - a probabilistic DS.
+
+COMPLEXITY
+            average     worst
+insert      O(log(n))   O(n) 
+delete      O(log(n))   O(n)
+remove      O(log(n))   O(n)
+search      O(log(n))   O(n)
+
+ADDING ELEMENTS TO A BST 
+BST elements must be comparable so that we can order them inside the tree.
+When inserting an element we want to compare its value to the value stored in 
+the current node we're considereing to decide on one of the following.
+
+- recurse down left subtree         (<case)
+- recurse down right subtree        (>case)
+- handles finding a duplicate value (=case)
+- create new node                   (found a null leaf)
+
+On average the insertion time will be logarithmic, but in the worst case
+this could degrade to linear time.
+
+Balance binary tree.
+
+
+REMOVING ELEMENTS FROM A BST
+- FIND the element we wish to remove(if exists).
+- REPLACE the node we want to remove with its sucessor (if any) to maintain
+the BST invariant.
+
+FIND PHASE: when searching our BST for a node with a particular value one of four
+things will happen.
+- We hit a null node at which point we know the value does not exists.
+- Comparator value equal to 0 (found it).
+- Comparator value less than 0 (the value, if it exists, is in the left subtree).
+- Comparator value greater than 0 (the value, if it exists, is in the right subtree).
+
+REMOVE PHASE: four cases
+- Node to remove is a leaf node.
+- Node to remove has a right subtree but no left subtree.
+- Node to remove has a left subtree but no right subtree.
+- Node to remoce has both a left and right subtree.
+
+CASE 1: Leaf node
+if the node we wish to remove is a leaf node the we may do so without side effect.
+
+CASE 2 and 3: either the left/right child node is a subtree.
+The successor of the node we are trying to remove in these cases will be the 
+root node of the left/right subtree.
+
+It may be the case that you are removing the root node of BST in which case its immediate child
+becomes the new root as you would expect.
+
+CASE 4: Node to remove has both a left and right subtree. In which subtree the succesor of the node
+we are trying to remove be ?
+
+Ans: The answer is both! The successor can either be the largest value in the left subtree or the
+smallest value in the right subtree.
+
+A justification for why there could be more than one successor is: The largest value in the left subtree
+satisfies the BST invariant since it:
+- Is larger that everything in left subtree.
+- Is smaller than everythin in right subtree because it was found in the left subtree.
+
+The smallest value in the right subtree satisfies the BST invariant since it:
+- Is smaller than everything in right subtree.
+- Is larger than everything in left subtree because it was found in the right subtree.

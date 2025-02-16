@@ -1,0 +1,100 @@
+HASH TABLE (one data structure to rule them all)
+
+WHAT IS A HASH TABLE?
+A hash table is a data structure that provides a mapping from keys to values
+using a technique called hashing.
+
+Keys must be unique, but values can be repeated.
+
+HTs are often used to track item frequencies. For instance, counting the number of
+times a word appears in a given text.
+
+The key-value pair you can place in a HT can be of any type not just strings and numbers,
+but also objects! However, the keys needs to be HASHABLE.
+
+
+HASH FUNCTION H(x) is a function that maps a key 'x' to a whole number in a fixed range.
+
+We can also define hash functions for arbitary object such as strings, lists, tuples, 
+multi data objects etc.
+
+For a string s let H(s) be a hash function defined below where ASCII(x) returns the 
+ASCII value of the character x.
+
+CHALLANGE: Suppose we have a database of people objects with three fields: name, age and sex.
+can you define a hash function that maps a person to the set.
+
+PROPERTIES OF HASH FUNCTION
+if H(x) = H(y) then object x and y might be equal, but if H(x) != H(y)
+then x and y are certainly not equal.
+
+
+A Hash function must be deterministic. This means if H(x) = y then H(x) must always 
+produce y and never another value. 
+
+We try very hard to make uniform hash functions to minimize the number of hash collisions.
+A hash collection is when two objects x,y hash to same value.
+
+HOW DOES A HASH TABLE WORK ?
+Ideally we would like to hace a very fast insertion, lookup and removal time for the 
+data we are placing withing our hash table.
+
+We can achive all this is O(1) time using a hash function as a way to index into a hash table.
+The constant time behaviour attributed to hash tables is only true if you have a good uniform
+hash function.
+
+HOW TO HANDLE HASH COLLISION?
+We use one of many hash collision resolution techniques to handle this, the
+two most popular ones are seperate chaining and open addressing.
+
+SEPERATE CHAINING : deals with hash collisions by maintaining a data structure (usually a linked list)
+to hold all the different values which hashed to a particular value.
+
+OPEN ADDRESSING: deals with hash collisions by finding another place within the hash table
+for the object to go by offsetting it from the position to which it hashed to.
+
+COMPLEXITY
+            Average     Worst 
+insertion   O(1)        O(n)
+removeal    O(1)        O(n)
+search      O(1)        O(n)
+
+The constant time behaviour attributed to hash tables is only true if you have a 
+uniform hash function.
+
+SEPERATE CHAINING: is one of many strategies to deal with hash collisions by maintaining a data 
+structure (usually a linked list) to hold all the different values which hashed to a particular value.
+   
+
+
+OPEN ADDRESSING: when using open addressing as a collision resolution technique the
+key-value pairs are stored in the table(array) itself as opposed to a data structure
+like in seperate chaining.
+
+This means we need to care a great deal about the size of our hash table and how many
+elements are currently in the table.
+
+Load factor = items in table / size of table
+
+When we want to insert a key-value pair(k-v) into the hash table we hash the key and obtain the
+orignal position for where this k-v pair belongs H(k).
+
+If the position our key hashed is occupied we try another position in the hash 
+table by offsetting the current position subject to a PROBING SEQUENCE P(x). We keep doing
+this until an unoccupied slot is found.
+
+There are an infinite amount of probing sequence to choose from:
+LINEAR PROBING: 
+    P(x) = ax + b;
+QUDRATIC PROBING:
+
+DOUBLE HASHING:
+
+PSEUDO RANDOM NUMBER GENERATOR:
+
+General insertion method for open addressing on a table of size N goes a follows:
+
+Most randomly selected probing sequences modulo N will produce a cycle shorter than the table size.
+This becomes problematic when you are trying to insert a k-v pair and all the bickets on the cycle are 
+occupied because you will get stuck in an infinite loop.
+ 

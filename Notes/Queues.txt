@@ -1,0 +1,97 @@
+What is a Queue ?
+A queue is a linear data structure, which models a real world queue
+by two primary methods, enqueue and dequeue.
+
+When and where queue used ?
+- Any waiting line model, line in  a movie theater.
+- Can be used to keep track of the x most recently added elements.
+- web server request management where you want first come first serve.
+- Breadth first search graph traversal.
+
+COMPLEXITY
+
+Enqueue     O(1)
+Dequeue     O(1)
+Peeking     O(1)
+Contains    O(n)
+Removal     O(n)
+IsEmpty     O(1)
+
+
+PRIORITY QUEUES (PQs) WITH AN INTERLUDE ON HEAPS 
+A priority queue is an abstract data types similar to normal queue.
+Where each element has a certain priority. The priority of the elements in
+the queue determines the order in which elements are removed from PQs.
+
+WHEN AND WHERE IS PQ USED ?
+- Used in certain implementations of Dijkstra's shortest path algorithms.
+- Anytime you need the dynamically fetch the 'next best' or 'next worst' element.
+- Used in Huffman coding(which is often used for lossless data compression).
+- Best First Seach (BFS) algorithms auch as A* uses PQs to continously grab the 
+next most promising node.
+- Used by Minimum Spanning Tree(MST) algorithms.
+
+
+COMPLEXITY PQ WITH BINARY HEAP 
+
+Bineary heap construction       O(n)
+Polling                         O(log(n))
+Peeking                         O(1)
+Adding                          O(log(n))
+Naive removing                  O(n)
+Advance removing with
+hash table                      O(log(n))
+Naive contains                  O(n)
+Contains check with hash 
+table                           O(1)
+
+
+TURNING MIN PQ INTO MAX PQ 
+-- complete this --
+
+
+Ways of implementing a Priority Queue 
+Priority queues are usually implemented with heaps since this gives
+them the  best possible time complexity.
+
+The Priority Queue is an Abstract datat type, Hence heap are not the 
+only way to implement PQs. We could use unsorted list.
+
+
+PRIORITY QUEUE WITH BINARY HEAP 
+A binary heap is a binray tree that supports the heap invariant. in a 
+binray tree every node has 2 children.
+
+A COMPLETE BINARY TREE is a tree in which at every level, except possibly the 
+last is completely filled and all the nodes are as far left as possible.
+
+Index Tree 
+            0
+        1       2
+      3   4   5   6
+     7 8 9 10 
+
+
+ADDING ELEMENTS TO BINARY HEAP
+
+REMOVE ELEMENTS FROM BINARY HEAP
+poll() : remove the root
+
+
+REMOVING ELEMENTS FROM BINARY HEAP IN O(log(n))
+The inefficieny of the removal algorithm comes from the fact that we have to
+perform a linear search to find out where an element is indexed at. What If
+instead we did a lookup using Hashtable to find out where a node is indexed at?
+
+A hastable provides a constant time loopup and update for a mapping from a key to a value.
+
+Caveat: What if there are two or more nodes with the same value? What problems would that cause?
+
+
+Insteal of mapping one value with one position we will map one value to multiple positions. We 
+can maintain a Set or Tree Set of indexex for which a particular node value(key) maps to.
+
+
+If we want to remove a repeated node in a heap, which node do we remove
+and does it matter which one we pick?
+- No it does not matter.  

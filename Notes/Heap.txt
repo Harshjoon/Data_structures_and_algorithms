@@ -1,0 +1,18 @@
+WHAT IS A HEAP ?
+a heap is a tree based data structure that satisfies the heap invariant.
+If A is a parent node of B the A is ordered with respect to B for all nodes.
+
+Heap is a complete binray tree data structure that satisfy heap property.
+That the value of each of its children node is either greater than or equal 
+to its own. Heaps are useful in priority queues, where the smallest or largest 
+element is always at the root of the tree.
+
+There are many types of heaps we could use to implement a priority queue:
+- Binary heap
+- Fibonacci heap 
+- Binomial Heap 
+- Pairing Heap
+.
+.
+.
+
